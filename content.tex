@@ -1,0 +1,217 @@
+% Предишни
+% 1 Множества - функции и релации. Декартово произведение на две множества.
+% Крайни множества. Изброими и неизброими множества. Ринцип на рекурсивната дефиниция.
+% 2 Безкрайни множества и аксиома за избора. Добре наредени множества. Принцип на максимума.
+% 3 Топологични пространства. Методи за въвеждане на топологии.Непрекъснати функции и хомеоморфизми.
+
+% ->>>> 4 Операции върху топологични пространства - подпространства, суми, произведения, фактор-пространства.
+
+\section{Общи съображения}
+\subsection{Означения}
+\begin{notation}
+    Нека $\langle X, \mathcal T_X\rangle$ е топологично пространство. Когато е ясно от контекста, ще бележим пространството само с името на множеството - $X$
+\end{notation}
+
+\subsection{Познати обекти}
+Известно е и топология породена от наредба:
+\begin{definition}
+    За тотално наредено пространство $X$ с релация $<$ и $a, b \in X: a \leq b$ следните наричаме \textbf{интервали}:
+    \begin{equation*}
+        \begin{split}
+            (a, b) & = \left\{x\mid a < x < b\right\} \\
+            [a, b) & = \left\{x\mid a \leq x < b\right\} \\
+            (a, b] & = \left\{x\mid a < x \leq b\right\} \\
+            [a, b] & = \left\{x\mid a \leq x \leq b\right\} \\
+        \end{split}
+    \end{equation*}
+\end{definition}
+\begin{notation}
+    Използвайки означенията от горната дефиниция:
+    \begin{itemize}
+        \item $(a, b)$ наричаме \textbf{отворен интервал от $a$ до $b$}
+        \item $[a, b]$ наричаме \textbf{затворен интервал от $a$ до $b$}
+        \item $[a, b)$ наричаме \textbf{полуотворен интервал от $a$ до $b$} \textbf{затворен отляво}
+        \item $(a, b]$ наричаме \textbf{полуотворен интервал от $a$ до $b$} \textbf{затворен отдясно}
+    \end{itemize}
+\end{notation}
+Използването на думите не е случайно - ще се окаже, че отворените интервали са точно отворените множества на стандартната топология.
+\begin{definition}
+    Нека $X \neq \emptyset$ е мн-во с линейна наредба. Нека $m=\inf X, M=\sup X$ (ако съществуват). 
+
+    \begin{equation*}
+        \mathcal B_< = \left\{(a,b) \mid a < b\right\} \cup \underbrace{\left\{ [m, b) \mid b \in X \right\}}_{\text{ако $m$ съществува}} \cup \underbrace{\left\{ (a, M] \mid a \in X \right\}}_{\text{ако $M$ съществува}}
+    \end{equation*}
+\end{definition}
+\begin{notation}
+    $\mathcal B_<$ е базис на топология породена от наредба
+\end{notation}
+
+Когато се говори $\R$ и топология (без да е назована) се подразбира стандартната топология.
+\begin{definition}
+    Стандартна топология на $\R$ е
+    \begin{equation*}
+        \mathcal B = \{(a;b) \mid a<b\}
+    \end{equation*}
+    Топологията генерирана от всички отворени интервали.
+\end{definition}
+
+\subsection{Твърдения}
+Посочените тук твърдения са от предишни теми и се използват наготово тук.
+
+Интересно наблюдение е, че ако всеки синглетон принадлежи на топологията, то тя е еквивалентна на дискретната топология. Този факт се проверява като лесно следствие от дефиницията. $(\forall x \in X:\ \{x\} \in \mathcal T) \Rightarrow \mathcal T = \mathcal P(X)$. Обратното е тривиално.
+\begin{lemma}
+    Нека $\mathcal T$ е топология.
+
+    \begin{equation*}
+        (\forall x \in X:\ \{x\} \in \mathcal T) \iff \mathcal T = \mathcal P (X)
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    \begin{itemize}
+        \item[$(\Rightarrow)$] Нека всеки синглетон е елемент на топологията.
+        \begin{equation}
+            \forall x \in X:\ \{x\} \in \mathcal T
+        \end{equation}
+        Значи всички крайни и безкрайни обединения на синглетони са елементи на топологията, което са всички крайни и безкрайни подмножества на $X$.
+        
+        Значи наистина $\mathcal T_X = \mathcal P (X)$
+
+        \item[$(\Leftarrow)$] Нека $\mathcal T_X$ е дискретната топология
+        \begin{equation}
+            \mathcal T = \mathcal P (X)
+        \end{equation}
+        Тогава е тривиално наблюдението, че:
+        \begin{equation}
+            \forall x \in X:\; \{x\} \in \mathcal T
+        \end{equation}
+        Значи всеки синглетон принадлежи на топологията.
+    \end{itemize}
+\end{proof}
+
+\section{Подпространство}
+\begin{definition}
+    Нека $\langle X, \mathcal T_X \rangle$ е топологично пространство и $Y \subseteq X$.
+    \begin{equation*}
+        \mathcal T_Y = \left\{ U \cap Y \mid U \in \mathcal T_X \right\}
+    \end{equation*}
+    $\langle Y, \mathcal T_Y\rangle$ е топологично пространство и се нарича подпространство на $\langle X, \mathcal T_X \rangle$ породено от $Y$
+\end{definition}
+\begin{lemma}
+    Подпространството е топология
+\end{lemma}
+\begin{proof}
+    \cite[p.~89]{munkrestopology}
+\end{proof}
+\begin{lemma}
+    Нека $\langle X, \mathcal T_X \rangle$ е топологично пространство и $\mathcal B_X$ е базис на $\mathcal T_X$.
+    \begin{equation*}
+        \mathcal B = \left\{ B \cap Y \mid B \in \mathcal B_X \right\}
+    \end{equation*}
+    $\mathcal B$ е базис за подпространството над $Y$
+\end{lemma}
+\begin{proof}
+    \cite[p.~89]{munkrestopology}
+\end{proof}
+Интересно е кога едно множество е отворено в пространство и съответно в негово подпространство. Възможно е да имаме елемент на подпространството, т.ч. да не е елемент на голямото пространство. \lemref{lem:open-in-subspace} ни показва точно кога едно множество е отворено в двете пространства
+\begin{lemma}\label{lem:open-in-subspace}
+    Нека $Y$ е подпространство на $X$, $U$ е отворено в $Y$ и $Y$ е отворено в $X \Rightarrow U$ е отворено в $X$
+\end{lemma}
+\begin{proof}
+    Лесно се вижда.
+
+    $U$ е отворено в $Y \Rightarrow U \cap Y = V$ за някакво $V$ - отворено в $X$, но $Y$ е отворено в $X$. Значи $U$ е сечение на отворени мн-ва $\Rightarrow U$ е отворено.
+
+    \cite[p.~89]{munkrestopology}
+\end{proof}
+\begin{lemma}
+    Нека $Y$ е подпространство на $X$, $U$ е затворено в $Y \iff \exists V $ - затворено в $X:\; U = Y \cap V$
+\end{lemma}
+\begin{proof}
+    \cite[p.~94]{munkrestopology}
+\end{proof}
+\begin{lemma}
+    Нека $Y$ е подпространство на $X$, $U$ е затворено в $Y$ и $Y$ е затворено в $X \Rightarrow U$ е затворено в $X$
+\end{lemma}
+\begin{proof}
+    \cite[p.~95]{munkrestopology}
+\end{proof}
+
+\begin{proposition}
+    Нека $X$ е топологично пространство, $Y$ - произволно негово подпрстранство, a $Z \subseteq Y$ - произволно подмножество.
+
+    Тогава топологията на подпространство на $Y$ породено от $Z$ и топологията на подпространство на $X$ породено от $Z$ съвпадат.
+\end{proposition}
+
+\subsection{Няколко примера}
+\begin{example}
+    Подпространството на $\R$ породено от $\N$. Това е точно дискретната топология над $\N$
+\end{example}
+\begin{proof}
+    \begin{equation}
+        \mathcal T = \left\{(a; b) \cap \N \mid a, b \in \R\right\}
+    \end{equation}
+    Това са всички естествени числа между произволни $a$ и $b$
+
+    Кой да е синглетон $\{x\} \subseteq \N$ е елемент на $\mathcal T$, защото $(x-1;x+1) \cap \N = \{x\}$.
+
+    Топологията $\mathcal T$ съдържа синглетони, значи е дискретната топология.
+\end{proof}
+\begin{example}
+    Подпространството на $\R$ породено от $\Q$. Но това не е дискретна топология, понеже няма отворено множество в $\R$. 
+\end{example}
+\begin{example}
+    Подпространството на $\R$ породено от $I = [0; 1]$ - единичния интервал.
+\end{example}
+
+\section{Връзка между операции}
+\subsection{Подпространство и произведение}
+\begin{theorem}
+    Нека $X, Y$ - топологични пространства, а $A, B$ са съответно техни подпространства ($A \subseteq X, B \subseteq Y$). Произведението $A \times B$ като топологично пространство е същото, което $A \times B$ поражда като подпространство на $X \times Y$
+\end{theorem}
+\begin{proof}
+    \cite[p.~87]{munkrestopology}
+\end{proof}
+
+\subsection{Топология породена от наредба и подпространство}
+Нека имаме топология породена от наредба над $\langle X, < \rangle$ и едно подмножество $Y \subseteq X$. Множеството $Y$ е наредено от $< \mid_Y$. Значи има топология породена от наредба за $\langle Y, < \rangle$, но може да се случи така, че да не съвпада с топологията на $Y$ като подпространство на $X$.
+\begin{example}
+    Нека $X = \R, Y = [0; 1) \cup {2}$. Отбелязваме, че $Y \subseteq \R$.
+    
+    Топологията на $Y$ като подпространство $\mathcal T_{sub}$ съдържа $\{2\}$, защото може да се представи като сечение на отворено множество от стандартната топология на $\R$ с $Y$:
+    \begin{equation}
+        \{2\} = Y \cap \left(\frac{3}{2}; \frac{5}{2}\right)
+    \end{equation}
+
+    Обаче ако разгледаме топологията на $Y$ породена от стандартната наредба на $\R$ - $\mathcal T_<$ с базис $\mathcal B_<$-  ще открием, че $\{2\}$ не е отворено множество. Всеки елемент на $\mathcal B_<$, който съдържа 2 по необходимост ще съдържа и други числа. Нека $2 \in S, S \in \mathcal B_<$:
+    \begin{equation}
+        S = (a; 2] \Rightarrow 2 \neq \frac{a + 2}{2} \in S
+    \end{equation}
+    Значи няма как да е отворено множество в $\mathcal T_<$, защото всяко отворено множество ще съдържа числа по-малки от 2.
+\end{example}
+
+\subsubsection*{Има случаи, обаче, когато двете съвпадат:}
+\begin{example}
+    Нека $X = \R,\ Y = [0; 1] = I$. Известно ни е, че $I \subset \R$.
+
+    Като подпространство $\langle I, \mathcal T_{sub}\rangle$ има базис:
+    \begin{equation}
+        \mathcal B_{sub} = \left\{(a; b) \cap I\mid a < b\right\}
+    \end{equation}
+    Знаем, че за $(a; b) \cap I$ имаме няколко случая:
+    \begin{equation}
+        (a; b) \cap I = \begin{cases}
+            (a; b)      & a, b \in I \\
+            [0; b)      & a \notin I, b \in I\; (\star)\\
+            (a; 1]      & a \in I, b \notin I\; (\star)\\
+            I           & a < 0, b > 1 \\
+            \emptyset   & a, b < 0 \lor a, b > 1 \\
+        \end{cases}
+    \end{equation}
+
+    По дефиниция всичките са отворени в $\langle I, \mathcal T_{sub} \rangle$, означените със $(\star)$ не са отворени в $\R$. 
+    
+    Но това формира базиса на топологията като подпространство, което съвпада с базиса на топологията породена от наредбата $<$ над $I$:
+    \begin{equation}
+         \mathcal B_< = \left\{(a,b) \mid 0 < a < b < 1\right\} \cup \left\{ [0, b) \mid b \in I \right\} \cup \left\{ (a, 1] \mid a \in I \right\}
+    \end{equation}
+\end{example}
