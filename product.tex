@@ -1,0 +1,83 @@
+\section{Произведение на топологии}
+\begin{definition}
+    Нека $\langle X, \mathcal T_X \rangle$ и $\langle Y,\mathcal T_Y \rangle$ са топологични пространства и нека
+    \begin{equation*}
+        \mathcal B = \left\{U \times V \mid U \in \mathcal T_X, V \in \mathcal T_Y\right\}
+    \end{equation*}
+    Тогава $\mathcal B$ е базис на топологично пространство над $X \times Y$
+\end{definition}
+Хубаво е да се провери, че наистина е базис
+\begin{proof}
+    Проверява се лесно. При съмнение - \cite[p.~86]{munkrestopology}
+\end{proof}
+Това е, ако имаме целите топологии, но в повечето случаи предпочитаме да работим с базиси над мн-вата, затова служи следната т-ма
+\begin{theorem}\label{thm:basis-of-times}
+    Нека $\mathcal B$ и $\mathcal C$ са базиси на топологии над $X$ и $Y$ съответно. Тогава
+    \begin{equation*}
+        \mathcal D = \left\{ B \times C \mid B \in \mathcal B, C \in \mathcal C \right\}
+    \end{equation*}
+    Тогава $\mathcal D$ е базис на топология над $X \times Y$
+\end{theorem}
+\begin{proof}
+    \cite[p.~87]{munkrestopology}
+\end{proof}
+\begin{example}
+    Стандартната топология $\R^2$ е стандартната топология на $\R$ $\times$ стандартната топология на $\R$. Но това е голямо множество. \thref{thm:basis-of-times} ни казва, че можем да работим с базиса от всички отворени правоъгълници (а това е доста по-малко мн-во)
+\end{example}
+\begin{example}
+    Още една известна топология е $\R_l \times \R_l$ с името "равнина на Соргенфрей"
+\end{example}
+\begin{notation} 
+    Нека $A_i, i \in I$ са мн-ва за някакво индексно мн-во $I$.
+    
+    $\pi_k : \prod\limits_i A_i \to A_k$ е стандартната проекция на $k$-тия елемент от Декартовото произведение.
+\end{notation}
+Тривиално наблюдение е, че $\forall k \in I: \pi_k$ е сюрективна. Тогава можем да конструираме
+\begin{equation*}
+    \pi_k^{-1}(U) = A_1 \times \dots \times A_{k-1} \times U \times A_{k+1} \times \dots \times A_k \text{ за } U \subseteq A_k
+\end{equation*}
+От тук произтича и следната теорема
+\begin{theorem}
+    \begin{equation*}
+        \mathcal B = \left\{ \pi_1^{-1}(U) \mid U \in \mathcal T_X \right\} \cup \left\{ \pi_2^{-1}(V) \mid V \in \mathcal T_Y \right\}
+    \end{equation*}
+    $\mathcal B$ е подбазис на топологията на $X \times Y$
+\end{theorem}
+\begin{proof}
+    Лесно се забелязва, че за
+    \begin{equation*}
+        \forall U \in \mathcal T_X, V\in \mathcal T_Y : \pi_1(U) \cap \pi_2(V) = U \times V
+    \end{equation*}
+    което е отворено в $X \times Y$
+    
+    \cite[p.~88]{munkrestopology}
+\end{proof}
+
+\subsection{Обобщение}
+Дефинирахме операцията за 2 пространства, но нищо не ни спира да го обобщим за произволна бройка
+\begin{definition}
+    Нека $\mathcal X = \left\{X_i\right\}_{i \in I}$ е фамилия от топологични пространства.
+
+    Дефинираме $\prod \mathcal X = \prod\limits_{i \in I}X_i$ да бъде топологията, която е произведение на пространствата от фамилията.
+\end{definition}
+\begin{proposition}
+    Произведението на топологии е асоциативно
+\end{proposition}
+\begin{proof}
+    Тривиално се проверява използвайки асоциативността на Декартовото произведение.
+\end{proof}
+\begin{notation}
+    Ако $\forall i \in I X_i = X$ за някакво фиксирано $X$ и $|I| = n$, тогава $\prod \mathcal X $ бележим с $X^n$ и се нарича \textbf{$n$-та степен на $X$}. Ако $|I| = \aleph_0$, то $\prod \mathcal X $ бележим с $X^\omega$ (не успях да намеря превод на \emph{$\omega$-tuple})
+\end{notation}
+Естествено наблюдение е, че всички доказани твърдения са верни за произволни произведения на пространства.
+
+\subsubsection{Генериране на обобщеното произведение}
+Интересно е как могат да се генерират произведенията. За това ни помага следното твърдение.
+\begin{proposition}
+    Нека $\mathcal X = \left\{X_i\right\}_{i\in I}$ е фамилия от пространства, а $\mathcal W = \left\{W_i\right\}_{i\in I}$, т.ч. $\forall i\in I:\; W_i$ е отворено в $X_i$ и само за краен брой $W \in \mathcal W,\; W \subseteq X \in \mathcal X$ е вярно, че $W \neq X$.
+
+    Тогава $\mathcal W$ е базис за $\prod \mathcal X$
+\end{proposition}
+\begin{proof}
+    \cite[p.~77]{engelking1989general}
+\end{proof}
