@@ -1,0 +1,81 @@
+\section{Общи съображения}
+\subsection{Означения}
+\begin{notation}
+    Нека $\langle X, \mathcal T_X\rangle$ е топологично пространство. Когато е ясно от контекста, ще бележим пространството само с името на множеството - $X$
+\end{notation}
+
+\subsection{Познати обекти}
+Известно е и топология породена от наредба:
+\begin{definition}
+    За тотално наредено пространство $X$ с релация $<$ и $a, b \in X: a \leq b$ следните наричаме \textbf{интервали}:
+    \begin{equation*}
+        \begin{split}
+            (a, b) & = \left\{x\mid a < x < b\right\} \\
+            [a, b) & = \left\{x\mid a \leq x < b\right\} \\
+            (a, b] & = \left\{x\mid a < x \leq b\right\} \\
+            [a, b] & = \left\{x\mid a \leq x \leq b\right\} \\
+        \end{split}
+    \end{equation*}
+\end{definition}
+\begin{notation}
+    Използвайки означенията от горната дефиниция:
+    \begin{itemize}
+        \item $(a, b)$ наричаме \textbf{отворен интервал от $a$ до $b$}
+        \item $[a, b]$ наричаме \textbf{затворен интервал от $a$ до $b$}
+        \item $[a, b)$ наричаме \textbf{полуотворен интервал от $a$ до $b$} \textbf{затворен отляво}
+        \item $(a, b]$ наричаме \textbf{полуотворен интервал от $a$ до $b$} \textbf{затворен отдясно}
+    \end{itemize}
+\end{notation}
+Използването на думите не е случайно - ще се окаже, че отворените интервали са точно отворените множества на стандартната топология.
+\begin{definition}
+    Нека $X \neq \emptyset$ е мн-во с линейна наредба. Нека $m=\inf X, M=\sup X$ (ако съществуват). 
+
+    \begin{equation*}
+        \mathcal B_< = \left\{(a,b) \mid a < b\right\} \cup \underbrace{\left\{ [m, b) \mid b \in X \right\}}_{\text{ако $m$ съществува}} \cup \underbrace{\left\{ (a, M] \mid a \in X \right\}}_{\text{ако $M$ съществува}}
+    \end{equation*}
+\end{definition}
+\begin{notation}
+    $\mathcal B_<$ е базис на топология породена от наредба
+\end{notation}
+
+Когато се говори $\R$ и топология (без да е назована) се подразбира стандартната топология.
+\begin{definition}
+    Стандартна топология на $\R$ е
+    \begin{equation*}
+        \mathcal B = \{(a;b) \mid a<b\}
+    \end{equation*}
+    Топологията генерирана от всички отворени интервали.
+\end{definition}
+
+\subsection{Твърдения}
+Посочените тук твърдения са от предишни теми и се използват наготово тук.
+
+Интересно наблюдение е, че ако всеки синглетон принадлежи на топологията, то тя е еквивалентна на дискретната топология. Този факт се проверява като лесно следствие от дефиницията. $(\forall x \in X:\ \{x\} \in \mathcal T) \Rightarrow \mathcal T = \mathcal P(X)$. Обратното е тривиално.
+\begin{lemma}
+    Нека $\mathcal T$ е топология.
+
+    \begin{equation*}
+        (\forall x \in X:\ \{x\} \in \mathcal T) \iff \mathcal T = \mathcal P (X)
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    \begin{itemize}
+        \item[$(\Rightarrow)$] Нека всеки синглетон е елемент на топологията.
+        \begin{equation}
+            \forall x \in X:\ \{x\} \in \mathcal T
+        \end{equation}
+        Значи всички крайни и безкрайни обединения на синглетони са елементи на топологията, което са всички крайни и безкрайни подмножества на $X$.
+        
+        Значи наистина $\mathcal T_X = \mathcal P (X)$
+
+        \item[$(\Leftarrow)$] Нека $\mathcal T_X$ е дискретната топология
+        \begin{equation}
+            \mathcal T = \mathcal P (X)
+        \end{equation}
+        Тогава е тривиално наблюдението, че:
+        \begin{equation}
+            \forall x \in X:\; \{x\} \in \mathcal T
+        \end{equation}
+        Значи всеки синглетон принадлежи на топологията.
+    \end{itemize}
+\end{proof}

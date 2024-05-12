@@ -1,0 +1,43 @@
+\subsection{Топология породена от наредба и подпространство}
+Нека имаме топология породена от наредба над $\langle X, < \rangle$ и едно подмножество $Y \subseteq X$. Множеството $Y$ е наредено от $< \mid_Y$. Значи има топология породена от наредба за $\langle Y, < \rangle$, но може да се случи така, че да не съвпада с топологията на $Y$ като подпространство на $X$.
+\begin{example}
+    Нека $X = \R, Y = [0; 1) \cup {2}$. Отбелязваме, че $Y \subseteq \R$.
+    
+    Топологията на $Y$ като подпространство $\mathcal T_{sub}$ съдържа $\{2\}$, защото може да се представи като сечение на отворено множество от стандартната топология на $\R$ с $Y$:
+    \begin{equation}
+        \{2\} = Y \cap \left(\frac{3}{2}; \frac{5}{2}\right)
+    \end{equation}
+
+    Обаче ако разгледаме топологията на $Y$ породена от стандартната наредба на $\R$ - $\mathcal T_<$ с базис $\mathcal B_<$-  ще открием, че $\{2\}$ не е отворено множество. Всеки елемент на $\mathcal B_<$, който съдържа 2 по необходимост ще съдържа и други числа. Нека $2 \in S, S \in \mathcal B_<$:
+    \begin{equation}
+        S = (a; 2] \Rightarrow 2 \neq \frac{a + 2}{2} \in S
+    \end{equation}
+    Значи няма как да е отворено множество в $\mathcal T_<$, защото всяко отворено множество ще съдържа числа по-малки от 2.
+\end{example}
+
+\subsubsection*{Има случаи, обаче, когато двете съвпадат:}
+\begin{example}
+    Нека $X = \R,\ Y = [0; 1] = I$. Известно ни е, че $I \subset \R$.
+
+    Като подпространство $\langle I, \mathcal T_{sub}\rangle$ има базис:
+    \begin{equation}
+        \mathcal B_{sub} = \left\{(a; b) \cap I\mid a < b\right\}
+    \end{equation}
+    Знаем, че за $(a; b) \cap I$ имаме няколко случая:
+    \begin{equation}
+        (a; b) \cap I = \begin{cases}
+            (a; b)      & a, b \in I \\
+            [0; b)      & a \notin I, b \in I\; (\star)\\
+            (a; 1]      & a \in I, b \notin I\; (\star)\\
+            I           & a < 0, b > 1 \\
+            \emptyset   & a, b < 0 \lor a, b > 1 \\
+        \end{cases}
+    \end{equation}
+
+    По дефиниция всичките са отворени в $\langle I, \mathcal T_{sub} \rangle$, означените със $(\star)$ не са отворени в $\R$. 
+    
+    Но това формира базиса на топологията като подпространство, което съвпада с базиса на топологията породена от наредбата $<$ над $I$:
+    \begin{equation}
+         \mathcal B_< = \left\{(a,b) \mid 0 < a < b < 1\right\} \cup \left\{ [0, b) \mid b \in I \right\} \cup \left\{ (a, 1] \mid a \in I \right\}
+    \end{equation}
+\end{example}
