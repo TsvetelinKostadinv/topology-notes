@@ -1,7 +1,24 @@
 \section{Фактор-пространство}
 Факторизирането е познато от други области като линейната алгебра и теория на групите, където разглеждаме множество елементи като един под действието на някакво изображение. По подобен начин ще разглеждаме и фактор-пространствата в топологията.
 
-Има разнообразни начини да се въведе факторизирането. Нека се спрем на представянето чрез релация на еквивалентност.
+В геометричната интерпретация на топологията факторизацията има смисъл на деформация и "залепване" на краищата.
+
+\begin{example}
+    Ако разгледаме квадрат и факторизираме като разглеждаме следните обекти като еквивалентни (ще покажем защо използваме точно тази дума по-долу в текста):
+
+    \begin{itemize}
+        \item Четирите ъгъла на квадрата
+        \item Две по две успоредните страни
+        \item Вътрешността на квадрата
+    \end{itemize}
+
+    Така полученото факторизиране всъщност е хомеоморфно на тор.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{resources/torus.png}
+        \caption{Визуално представяне на факторизацията (взето от \cite[стр.~140]{munkrestopology})}
+    \end{figure}
+\end{example}
 
 \subsection{Силно непрекъснато изображение}
 \begin{definition}
@@ -9,6 +26,9 @@
     
     $p: X \to Y$. $p$ е силно непрекъснато изображение $\bydef$ p е сюрекция и $\forall U \in Y$ - отворено множество: $p^{-1}(U)$ е отворено множество в $X$
 \end{definition}
+\begin{notation}
+    В тази секция употребяваме силно непрекъснато (изборажение) като превод на "quotient map" или "strong continuity".
+\end{notation}
 \begin{definition}
     Нека $X$ е топологично пространство
     
@@ -19,14 +39,14 @@
 \end{notation}
 Иначе казано, $C$ е наситено точно тогава когато има такова подмножество на $U \subseteq Y$, че $p^{-1}(U) = C$
 
-Значи можем еквивалентно дДефинираме силно непрекъснато изображение чрез наситени множества
+Значи можем еквивалентно да дефинираме силно непрекъснато изображение чрез наситени множества
 \begin{proposition}
     $p: X \to Y$ е силно непрекъсната $\iff$ $p$ е непрекъснато изображение и изобразява наситените отворени множества на $X$ в отворени множества на $Y$.
 \end{proposition}
 
 Лесно може да се съобрази, че:
 \begin{proposition}
-    Нека $X, Y$ са топологични пространства..
+    Нека $X, Y$ са топологични пространства.
 
     $p: X \to Y$ е сюрективно непрекъснато отворено/затворено изображение $\Rightarrow$ $p$ е силно непрекъснато
 \end{proposition}
@@ -106,13 +126,33 @@
 
             \draw (-3, 0) circle (0.5);
             \draw (0, 0) circle (0.5);
-            \draw (3, 0) circle (0.5);
+            % \draw (3, 0) circle (0.5);
             \draw (-1.5, 0) ellipse (2.5 and 1.5);
             \draw (0, 0) ellipse (4.5 and 2);
         \end{tikzpicture}
         \caption{Визуално представяне на топологията породена от $p$}
     \end{figure}
 \end{example}
+
+Забелязваме, че $c$ е елемент единствено на цялото множество - това се дължи на факта, че не можем да произведем полузатворен интервал с край $x$ - от вида $(v; x]$ или $[x; u)$.
+
+\subsubsection{Композиция}
+Лесно се проверява, че композицията запазва силната непрекъснатост благодарение на следния факт:
+\begin{equation}
+    p^{-1}(q^{-1}(x)) = (q \circ p)^{-1}(x)
+\end{equation}
+\begin{proposition}
+    Нека $X_1, X_2, X_3$ са топологични пространства, $p_i: X_i \to X_{i+1}$ е силно непрекъснато изображение за $i \in \{1, 2\}$
+
+    Тогава $p_1 \circ p_2 : X_1 \to X_3$ е силно непрекъснато изображение.
+\end{proposition}
+
+\subsubsection{Произведение}
+Декартовото произведение не винаги запазва силната непрекъснатост.
+\begin{proof}
+    Конструкция е.
+    \cite[стр.~143]{munkrestopology}
+\end{proof}
 
 \subsection{Фактор-пространство дефинирано от релация на еквивалентност}
 \subsubsection{Припомняне от теория на множествата}
@@ -156,3 +196,145 @@
 \begin{definition}
     Нека $X$ е множество, $\sim$ е релация на еквивалентност над $X$, с естествено влагане $p: X \to X/_\sim$. С топологията породена от $p$, $\langle X, X/_\sim\rangle$ се нарича фактор-пространство.
 \end{definition}
+\begin{proposition}
+    Двете дефиниции за фактор-пространство са еквивалентни
+\end{proposition}
+\begin{fact}
+    Относно естественото включване, изображенията в двете посоки изглеждат по следния начин:
+
+    От множеството към фактор-множеството:
+    \begin{equation}
+        p(X) = p(\{x_1, x_2, \dots, x_n, \dots\}) = \{[x_1], [x_2], \dots, [x_n], \dots\} = U
+    \end{equation}
+
+    От фактор-множеството към множеството:
+    \begin{equation}
+        p(U) = p(\{[x_1], [x_2], \dots, [x_n], \dots\}) = \bigcup_{[x] \in U} [x]
+    \end{equation}
+\end{fact}
+
+\subsubsection{Относно подпространства}
+\begin{theorem}
+    Нека $X, Y$ са топологични пространства, $p: X \to Y$ е силно непрекъснато изображение, $A \subseteq X$ е наситено подмножество. 
+
+    Нека $q = p\mid_A, q: A \to p(A)$
+    \begin{itemize}
+        \item Ако $A$ е отворено/затворено $\Rightarrow$ $q$ е силно непрекъснато
+        \item Ако $p$ е отворено/затворено изображение $\Rightarrow$ $q$ е силно непрекъснато
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    \cite[стр.~140]{munkrestopology}
+\end{proof}
+
+\subsection{Непрекъснати функции над фактор-пространство}
+% Нека в тази секция $X, Y, Z, \dots$ означават топологични пространства, a $X^*, Y^*, Z^*, \dots$ съответно техните фактор-пространства породени от силно непрекъснатите ф-ии $p_X, p_Y, p_Z, \dots$
+
+Подобно на \thref{th:sum-continuous} ще се интересуваме от това кога една функция е непрекъсната по отношение на това къде е дефинирана или нейните стойности.
+
+Съответната на \thref{th:sum-continuous} по отношение на фактор-пространства е следната:
+\begin{theorem}\label{th:factor-continuous}
+    Нека $X, Y, Z$ са топологични пространства, $p: X \to Y$ е силно непрекъснато изображение и $g: X \to Z$ е изображение, т.ч.
+    \begin{equation}
+        \exists z \in Z,\ \forall y \in Y:\; g(p^{-1}(\{y\})) = z
+    \end{equation}
+    т.е. $g$ е константа над всички множества от вида $p^{-1}(\{y\})$
+
+    Тогава $g$ поражда функция $f: Y \to Z,\ f \circ p = g$.
+    \begin{itemize}
+        \item $f$ е непрекъсната $\iff$ $g$ е непрекъсната
+        \item $f$ е силно непрекъсната $\iff$ $g$ е силно непрекъсната
+    \end{itemize}
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[
+        node distance=3cm,
+        auto
+        ] 
+           \node[state] (X) {$X$}; 
+           \node[state] (Y) [below of = X] {$Y$}; 
+           \node[state] (Z) [right of = Y]  {$Z$};
+            \path[->] 
+            (X) edge  node {$p$} (Y)
+                edge  node {$g$} (Z)
+            ;
+            \path[->, dashed]
+            (Y) edge node {$f$} (Z)
+            ;
+        \end{tikzpicture}
+        \caption{Диаграмата е комутативна по формулировката на теоремата}
+    \end{figure}
+\end{theorem}
+\begin{proof}
+    \cite[стр.~142]{munkrestopology}
+\end{proof}
+\begin{corollary}
+    Нека $g: X \to Z$ е сюрективно непрекъснато изображение и $X^*$ е такова, че:
+    \begin{equation}
+        X^* = \{g^{-1}(\{z\}) \mid z \in Z\}
+    \end{equation}
+    $X^*$ е фактор-пространство породено от подходяща функция $p$.
+
+    Тогава по \thref{th:factor-continuous} знаем, че има породена биективна\footnotemark  функция $f: X^* \to Z$, която е хомеоморфизъм, т.с.т.к. $g$ е силно непрекъсната.  
+    \footnotetext{праобразът (като множество) на дадено $z \in Z$ е напълно достатъчно, за да се опрелени еднозначно}
+\end{corollary}
+\begin{proof}
+    \cite[стр.~142-143]{munkrestopology}
+\end{proof}
+
+\subsection{Примери}
+Допълнителни примери за силно непрекъснати изображения и фактор-пространства по релация на еквивалентност. Вж. \cite[стр.~144-145]{munkrestopology}
+\begin{example}
+    Нека $X$ е топологично пространство и $A \subset X$, тогава $id_X\mid_A$ е силно непрекъснато изображение.
+\end{example}
+\begin{example}
+    Дефинираме релация $\sim$ над $\R^2$:
+    \begin{equation}
+        \langle x_0, y_0 \rangle \sim \langle x_1, y_1 \rangle \bydef x_0 + y_0^2 = x_1 + y_0 ^2
+    \end{equation}
+    Очевидно е релация на еквивалентност основавайки се на факта, че $=$ е релация на еквивалентност.
+
+    Да разгледаме няколко класа на еквивалентност:
+    \begin{equation}
+        [\langle 0, 0 \rangle] = \{ \langle -x^2, x \rangle \mid x \in \R_0^+\}
+    \end{equation}
+    Това е графиката на $x^2$ завъртяна с $\frac{\pi}{2}$
+    \begin{equation}
+        [\langle 0, 1 \rangle] = \{ \langle -x^2 + 1, x \rangle \mid x \in \R_0^+\}
+    \end{equation}
+    Това е графиката на $x^2 - 1$ завъртяна с $\frac{\pi}{2}$
+
+    Забелязваме, че
+    \begin{equation}
+        a\in \R:\; [\langle 0, a \rangle] = \{ \langle -x^2 + a^2, x \rangle \mid x \in \R_0^+\}
+    \end{equation}
+
+    Да се опитаме да варираме първата координата:
+    \begin{equation}
+        [\langle 1, 0 \rangle] = \{ \langle -x^2 + 1, x \rangle \mid x \in \R_0^+\}
+    \end{equation}
+    \begin{equation}
+        [\langle 2, 0 \rangle] = \{ \langle -x^2 + 2, x \rangle \mid x \in \R_0^+\}
+    \end{equation}
+    \begin{equation}
+        a\in \R:\; [\langle a, 0 \rangle] = \{ \langle -x^2 + a, x \rangle \mid x \in \R_0^+\}
+    \end{equation}
+    \begin{equation}
+        [\langle 1, 1 \rangle] = \{ \langle -x^2 + 2, x \rangle \mid x \in \R_0^+\}
+    \end{equation}
+    \begin{equation}
+        [\langle 2, 1 \rangle] = \{ \langle -x^2 + 3, x \rangle \mid x \in \R_0^+\}
+    \end{equation}
+    \begin{equation}
+        a \in \R:\; [\langle a, 1 \rangle] = \{ \langle -x^2 + a + 1, x \rangle \mid x \in \R_0^+\}
+    \end{equation}
+    \begin{equation}
+        a \in \R:\; [\langle a, 2 \rangle] = \{ \langle -x^2 + a + 4, x \rangle \mid x \in \R_0^+\}
+    \end{equation}
+    Забелязваме вече шаблона, затова твърдим:
+    \begin{equation}
+        a, b \in \R:\; [\langle a, b \rangle] = \{ \langle -x^2 + a + b^2, x \rangle \mid x \in \R_0^+\}
+    \end{equation}
+
+\end{example}

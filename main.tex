@@ -22,9 +22,6 @@
 \usepackage{mathtext}
 \usepackage{mathtools}
 
-\usepackage{tikz}
-\usepackage{stackengine}
-
 \usepackage{enumerate}
 
 \usepackage{array}
@@ -33,7 +30,11 @@
 \usepackage{biblatex}
 \addbibresource{ref.bib}
 
-\usepackage[draft]{pdfpages}
+% \usepackage[draft]{pdfpages}
+
+\usepackage{tikz}
+\usepackage{stackengine}
+\usetikzlibrary{automata,positioning}
 
 \hypersetup{
     colorlinks=true,
@@ -49,7 +50,8 @@
 
 \renewcommand*{\thesection}{\arabic{section}}
 
-\title{Топология - за извивките и ценителите}
+% \title{Топология - за извивките и ценителите}
+\title{Операции върху топологични пространства - подпространства, суми, произведения, фактор-пространства}
 \author{
   Цветелин Костадинов
 }
@@ -57,7 +59,8 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{\thetitle}
+% \rhead{\thetitle}
+\rhead{Операции върху топологични пространства}
 \fancyfoot[R]{\thepage}
 \lhead{
     \theauthor
@@ -105,7 +108,8 @@
 \DeclareMathOperator*{\ran}{range}
 
 \begin{document}
-\maketitle
+% \maketitle
+\include{title_page}
 \tableofcontents
 
 \include{common}
