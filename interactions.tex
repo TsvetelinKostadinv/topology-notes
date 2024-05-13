@@ -2,10 +2,10 @@
 \subsection{Подпространство и произведение}
 С въвеждането на нови операции е хубаво да се провери как се отнася с вече известни, затова помага следното твърдение.
 \begin{proposition}
-    Нека $X, Y$ - топологични пространства, а $A, B$ са съответно техни подпространства ($A \subseteq X, B \subseteq Y$). Произведението $A \times B$ като топологично пространство е същото, което $A \times B$ поражда като подпространство на $X \times Y$
+    Нека $X, Y$ - топологични пространства, а $A, B$ са съответно техни подпространства ($A \subseteq X, B \subseteq Y$). Произведението $A \times B$ като топологично пространство е същото, което $A \times B$ поражда като подпространство на $X \times Y$.
 \end{proposition}
 \begin{proof}
-    \cite[p.~87]{munkrestopology}
+    \cite[p.~87]{munkrestopology}.
 \end{proof}
 И неговото обобщение:
 \begin{proposition}
@@ -13,10 +13,10 @@
     \begin{equation}
         \forall i \in I:\; A_i \text{ е подпространство на } X_i
     \end{equation}
-    Тогава топологията на произведението $\prod \mathcal A$ е същата като топологията на подпрстранството генерирано от $\prod \mathcal A$ като мн-во
+    Тогава топологията на произведението $\prod \mathcal A$ е същата като топологията на подпрстранството генерирано от $\prod \mathcal A$ като мн-во.
 \end{proposition}
 \begin{proof}
-    \cite[p.~78]{engelking1989general}
+    \cite[p.~78]{engelking1989general}.
 \end{proof}
 
 \subsection{Подпространство и топология породена от наредба}
@@ -64,42 +64,42 @@
 \end{example}
 
 \subsection{Сума на пространства и непрекъснати функции}
-Редно е да проверим как сумата на пространства се отнася с непрекъснатите функции. Това ни дава точно 
+Редно е да проверим как сумата на пространства се отнася с непрекъснатите функции. Това ни дава точно:
 \begin{theorem}
-    За фамилия от непресичащи се пространства $\mathcal X$ и произволно пространство, ф-ията $f : \bigoplus \mathcal X \to Y$ е непрекъстната $\iff \forall s \in I:\; f \circ  i_s$ е непрекъсната
+    За фамилия от непресичащи се пространства $\mathcal X$ и произволно пространство, ф-ията $f : \bigoplus \mathcal X \to Y$ е непрекъстната $\iff \forall s \in I:\; f \circ  i_s$ е непрекъсната.
 \end{theorem}
 \begin{proof}
-    \cite[p.~75]{engelking1989general}
+    \cite[p.~75]{engelking1989general}.
 \end{proof}
 
 \subsection{Сума и затворени множества}
 От дефиницията е ясно кои множества са отворени - обединенията на отворени множества от отделните топологии. От дефиницията на затворени множества е ясно, че можем да кажем кои са затворените, но това свойство се проверява трудно. Следната лема ни дава по-удобно за работа условие.
 \begin{lemma}
-    $U \subseteq \bigoplus \mathcal X$ е затворено $\iff \forall i \in I:\; U \cap X_i$ е затворено в $X_i$
+    $U \subseteq \bigoplus \mathcal X$ е затворено $\iff \forall i \in I:\; U \cap X_i$ е затворено в $X_i$.
 \end{lemma}
 \begin{proof}
-    \cite[p.~74]{engelking1989general}
+    \cite[p.~74]{engelking1989general}.
 \end{proof}
 
 \begin{corollary}
-    $\forall i \in I:\; X_i$ е отворено и затворено в $\bigoplus \mathcal X$
+    $\forall i \in I:\; X_i$ е отворено и затворено в $\bigoplus \mathcal X$.
 \end{corollary}
 \begin{proposition}
-    Нека $\mathcal X$ е познатата фамилия от взаимно непресичащи се множества, а $\mathcal A = \{A_i\}_{i \in I}$ е фамилия от множества със свойството
+    Нека $\mathcal X$ е познатата фамилия от взаимно непресичащи се множества, а $\mathcal A = \{A_i\}_{i \in I}$ е фамилия от множества със свойството:
     \begin{equation*}
         \forall i\in I:\; A_i \text{ е подпространство на } X_i
     \end{equation*}
-    Нека $A = \bigcup \mathcal A$. Тогава топологията $\bigoplus \mathcal A$ съвпада с подпространството на $\bigoplus \mathcal X$ породено от $A$
+    Нека $A = \bigcup \mathcal A$. Тогава топологията $\bigoplus \mathcal A$ съвпада с подпространството на $\bigoplus \mathcal X$ породено от $A$.
 \end{proposition}
 \begin{proof}
-    \cite[p.~75]{engelking1989general}
+    \cite[p.~75]{engelking1989general}.
 \end{proof}
 
 \subsection{Произведение на пространства и непрекъснати функции}
-Редно е да проверим как Произведението на пространства се отнася с непрекъснатите функции. Това ни дава точно 
+Редно е да проверим как Произведението на пространства се отнася с непрекъснатите функции. Това ни дава точно:
 \begin{theorem}\label{th:sum-continuous}
-    За фамилия от пространства $\mathcal X = \{X_i\}_{i \in I}$ и произволно пространство $A$, ф-ията $f : A \to \prod \mathcal X,\; a \mapsto \langle f_1(a), f_2(a), \dots f_{|I|}(a) \rangle$ е непрекъстната $\iff \forall i \in I:\; f_i: A \to X_i$ е непрекъсната
+    За фамилия от пространства $\mathcal X = \{X_i\}_{i \in I}$ и произволно пространство $A$, ф-ията $f : A \to \prod \mathcal X,\; a \mapsto \langle f_1(a), f_2(a), \dots f_{|I|}(a) \rangle$ е непрекъстната $\iff \forall i \in I:\; f_i: A \to X_i$ е непрекъсната.
 \end{theorem}
 \begin{proof}
-    \cite[p.~110]{munkrestopology}
+    \cite[p.~110]{munkrestopology}.
 \end{proof}
