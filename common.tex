@@ -4,10 +4,55 @@
     Нека $\langle X, \mathcal T_X\rangle$ е топологично пространство. Когато е ясно от контекста, ще бележим пространството само с името на множеството - $X$.
 \end{notation}
 
+\begin{definition}[Колмогорово пространство, $T_0$ пространство]
+    $\langle X, \mathcal T_X \rangle$ е колмогорово пространство $\bydef\ \langle X, \mathcal T_X \rangle$ е топологично пространство и $\forall x,\ y \in X,\ \exists U \in \mathcal T_X:\; x \in U \oplus y \in U$
+
+    Тук използваме $\oplus$ като изключваща дизюнкция (събиране по модул 2).
+
+    Всеки две точки могат да се отделят една от друга чрез множество, което съдържа точно една от двете.
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[framed]
+            \filldraw (-1, 0) circle (3pt) node [xshift = 2pt, anchor=west]{$x$};
+            \filldraw (1, 0) circle (3pt) node [xshift = 2pt, anchor=west]{$y$};
+
+            \draw (-1, 0) circle (1) node [xshift = 16pt, yshift = 16pt]{$U$};
+        \end{tikzpicture}
+        или 
+        \begin{tikzpicture}[framed]
+            \filldraw (-1, 0) circle (3pt) node [xshift = 2pt, anchor=west]{x};
+            \filldraw (1, 0) circle (3pt) node [xshift = 2pt, anchor=west]{y};
+
+            \draw (1, 0) circle (1) node [xshift = 16pt, yshift = 16pt]{$U$};
+        \end{tikzpicture}
+        \caption{Графично представяне}
+    \end{figure}
+\end{definition}
+\begin{definition}
+    Нека $\langle X, \mathcal T_X \rangle$ е $T_0$ пространство. $x, y \in X$ са топологично различими, ако удовлетворяват условието $\exists U \in \mathcal T_X:\; x \in U \oplus y \in U$
+\end{definition}
+
+\begin{definition}[Хаусдорфово пространство, $T_2$ пространство]
+    $\langle X, \mathcal T_X \rangle$ е хаусдорфово пространство $\bydef\ \langle X, \mathcal T_X \rangle$ е топологично пространство и $\forall x_1,\ x_2 \in X,\ \exists U_1,\ U_2 \in \mathcal T_X:\; x_1 \in U_1,\ x_2 \in U_2, U_1 \cap U_2 = \emptyset$.
+
+    Всеки две точки могат да се отделят една от друга чрез непресичащи се отворени множества.
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[framed]
+            \filldraw (-1.5, 0) circle (3pt) node [xshift = 2pt, anchor=west]{x};
+            \filldraw (1.5, 0) circle (3pt) node [xshift = 2pt, anchor=west]{y};
+
+            \draw (-1.5, 0) circle (1) node [xshift = 16pt, yshift = 16pt]{$U$};
+            \draw (1.5, 0) circle (1) node [xshift = 16pt, yshift = 16pt]{$V$};
+        \end{tikzpicture}
+        \caption{Графично представяне}
+    \end{figure}
+\end{definition}
+
 \subsection{Познати обекти}
 Известно ни е, че съществува и топология породена от наредба:
 \begin{definition}
-    За тотално наредено пространство $X$ с релация $<$ и $a, b \in X: a \leq b$ следните наричаме \textbf{интервали}:
+    За напълно наредено пространство $X$ с релация $<$ и $a, b \in X: a \leq b$ следните множества наричаме \textbf{интервали}:
     \begin{equation*}
         \begin{split}
             (a; b) & = \left\{x\mid a < x < b\right\} \\
@@ -35,24 +80,20 @@
     \end{equation*}
 \end{definition}
 \begin{notation}
-    $\mathcal B_<$ е базис на топология породена от наредба.
+    $\mathcal B_<$ е база на топология породена от наредба.
 \end{notation}
 
 Когато се говори за $\R$ и топология (без да е назована), се подразбира стандартната топология.
 \begin{definition}
-    Стандартна топология на $\R$ е:
-    \begin{equation*}
-        \mathcal B = \{(a;b) \mid a<b\}
-    \end{equation*}
-    Топологията генерирана от всички отворени интервали.
+    Стандартна топология на $\R$ е генерирана от $\mathcal B = \{(a;b) \mid a<b\}$.
+    
+    Т.е. топологията в $\R$ е генерирана от всички отворени интервали.
 \end{definition}
-Има много възможни топологии над $\R$, също ще бъде спомената по-късно в текста и:
+Има много възможни топологии над $\R$. По-късно в текста ще бъде спомената и топологията на долната граница:
 \begin{definition}
-    Топология на долната граница на $\R$ с базис:
-    \begin{equation*}
-       \mathbb S = \{[a; b)\mid a < b\}
-    \end{equation*}
-    Също известна като права на Соргенфрей.
+    Топология на долната граница на $\R$ се генерира от база $\mathbb S = \{[a; b)\mid a < b\}$.
+
+    Също е известна като права на Зоргенфрей.
 \end{definition}
 
 \subsection{Функции}
@@ -93,7 +134,7 @@
 \subsection{Твърдения}
 Посочените тук твърдения са от предишни теми и се използват наготово тук.
 
-Интересно наблюдение е, че ако всеки синглетон принадлежи на топологията, то тя е еквивалентна на дискретната топология. Този факт се проверява като лесно следствие от дефиницията. $(\forall x \in X:\ \{x\} \in \mathcal T) \Rightarrow \mathcal T = \mathcal P(X)$. Обратното е тривиално.
+Интересно наблюдение е, че ако всяко едноточково множество принадлежи на топологията, то тя е еквивалентна на дискретната топология. Този факт се проверява като лесно следствие от дефиницията. $(\forall x \in X:\ \{x\} \in \mathcal T) \Rightarrow \mathcal T = \mathcal P(X)$. Обратното е тривиално.
 \begin{lemma}
     Нека $\mathcal T$ е топология.
 
@@ -103,11 +144,11 @@
 \end{lemma}
 \begin{proof}
     \begin{itemize}
-        \item[$(\Rightarrow)$] Нека всеки синглетон е елемент на топологията:
+        \item[$(\Rightarrow)$] Нека всяко едноточково множество е елемент на топологията:
         \begin{equation}
             \forall x \in X:\ \{x\} \in \mathcal T
         \end{equation}
-        Значи всички крайни и безкрайни обединения на синглетони са елементи на топологията, което са всички крайни и безкрайни подмножества на $X$.
+        Значи всички крайни и безкрайни обединения на едноточкови множества са елементи на топологията, което са всички крайни и безкрайни подмножества на $X$.
         
         Значи наистина $\mathcal T_X = \mathcal P (X)$.
 
@@ -119,6 +160,6 @@
         \begin{equation}
             \forall x \in X:\; \{x\} \in \mathcal T
         \end{equation}
-        Значи всеки синглетон принадлежи на топологията.
+        Значи всяко едноточково множество принадлежи на топологията.
     \end{itemize}
 \end{proof}

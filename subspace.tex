@@ -7,20 +7,20 @@
     $\langle Y, \mathcal T_Y\rangle$ е топологично пространство и се нарича подпространство на $\langle X, \mathcal T_X \rangle$ породено от $Y$.
 \end{definition}
 \begin{lemma}
-    Подпространството е топология.
+    Подпространството $\mathcal T_Y$ е топологично пространство.
 \end{lemma}
 \begin{proof}
-    \cite[p.~89]{munkrestopology}.
+    \cite[стр.~89]{munkrestopology}.
 \end{proof}
 \begin{lemma}
-    Нека $\langle X, \mathcal T_X \rangle$ е топологично пространство и $\mathcal B_X$ е базис на $\mathcal T_X$.
+    Нека $\langle X, \mathcal T_X \rangle$ е топологично пространство и $\mathcal B_X$ е база на $\mathcal T_X$.
     \begin{equation*}
         \mathcal B = \left\{ B \cap Y \mid B \in \mathcal B_X \right\}
     \end{equation*}
-    $\mathcal B$ е базис за подпространството над $Y$.
+    $\mathcal B$ е база за подпространството над $Y$.
 \end{lemma}
 \begin{proof}
-    \cite[p.~89]{munkrestopology}.
+    \cite[стр.~89]{munkrestopology}.
 \end{proof}
 Интересно е кога едно множество е отворено в пространство и съответно в негово подпространство. Възможно е да имаме елемент на подпространството, т.ч. да не е елемент на голямото пространство. \lemref{lem:open-in-subspace} ни показва точно кога едно множество е отворено в двете пространства.
 \begin{lemma}\label{lem:open-in-subspace}
@@ -29,21 +29,21 @@
 \begin{proof}
     Лесно се вижда.
 
-    $U$ е отворено в $Y \Rightarrow U \cap Y = V$ за някакво $V$ - отворено в $X$, но $Y$ е отворено в $X$. Значи $U$ е сечение на отворени мн-ва $\Rightarrow U$ е отворено.
+    $U$ е отворено в $Y \Rightarrow V \cap Y = U$ за някакво $V$ - отворено в $X$, но $Y$ е отворено в $X$. Значи $U$ е сечение на отворени мн-ва $\Rightarrow U$ е отворено.
 
-    \cite[p.~89]{munkrestopology}.
+    \cite[стр.~89]{munkrestopology}.
 \end{proof}
 \begin{lemma}
     Нека $Y$ е подпространство на $X$, $U$ е затворено в $Y \iff \exists V $ - затворено в $X:\; U = Y \cap V$.
 \end{lemma}
 \begin{proof}
-    \cite[p.~94]{munkrestopology}.
+    \cite[стр.~94]{munkrestopology}.
 \end{proof}
 \begin{lemma}
     Нека $Y$ е подпространство на $X$, $U$ е затворено в $Y$ и $Y$ е затворено в $X \Rightarrow U$ е затворено в $X$.
 \end{lemma}
 \begin{proof}
-    \cite[p.~95]{munkrestopology}.
+    \cite[стр.~95]{munkrestopology}.
 \end{proof}
 
 \begin{proposition}
@@ -62,12 +62,12 @@
     \end{equation}
     Това са всички естествени числа между произволни $a$ и $b$.
 
-    Кой да е синглетон $\{x\} \subseteq \N$ е елемент на $\mathcal T$, защото $(x-1;x+1) \cap \N = \{x\}$.
+    Кое да е едноточково множество $\{x\} \subseteq \N$ е елемент на $\mathcal T$, защото $(x-1;x+1) \cap \N = \{x\}$.
 
-    Топологията $\mathcal T$ съдържа синглетони, значи е дискретната топология.
+    Топологията $\mathcal T$ съдържа всички едноточкови множества, значи е дискретната топология.
 \end{proof}
 \begin{example}
-    Подпространството на $\R$ породено от $\Q$. Това не е дискретна топология, понеже няма отворено множество в $\R$. 
+    Подпространството на $\R$ породено от $\Q$. Не е дискретна топология, понеже $\Q$ е гъсто в $\R$.
 \end{example}
 \begin{example}
     Подпространството на $\R$ породено от $I = [0; 1]$ - единичният интервал.
